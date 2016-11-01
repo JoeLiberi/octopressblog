@@ -25,12 +25,10 @@ The “new_post” rake task takes one “Title” argument. This will, wait for
 3. The following code block includes all the commands to add, commit and push the newly created post to the master git repository. I use GitHub, but these commands will work for any personal BitBucket or similar. 
 
 {% codeblock %} 
-git add /source/_posts/2016-11-01-new-post-workflow.markdown
+git add .
 git commit –m “Created post: 2016-11-01-new-post-workflow.markdown”
-git push origin Macbook
+git push -u origin Macbook
 {% endcodeblock %}
-
-“origin” is the URL of the repo on GitHub. “Macbook” is the name of my local branch on my laptop.
 
 
 ## Pulling the new changes to the EC2 instance
@@ -39,7 +37,7 @@ Now that we have a new post that’s pushed up to Github, lets pull it down to t
 
 1. Using git pull the changes:
 {% codeblock %} 
-git pull Macbook master
+git pull origin Macbook
 {% endcodeblock %}
 
 2. Use the rake task to generate posts and pages into the public directory
